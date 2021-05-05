@@ -1,7 +1,6 @@
 *{
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
 }
 
 #header_img_container {
@@ -10,7 +9,7 @@
     justify-content: center;
 }
 
-#header_img {
+#header_img_container > img {
     max-width: 60%;   
 }
 
@@ -33,4 +32,5 @@
     color: #FFF1D6;
     text-decoration: none;
     font-family: 'Itim', cursive;
+    font-size: 1pc;
 }

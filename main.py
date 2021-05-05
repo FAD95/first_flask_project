@@ -1,7 +1,8 @@
 from flask import Flask, request, make_response, redirect, render_template
+from flask_bootstrap import Bootstrap
 
 app = Flask(__name__)
-
+Bootstrap(app)
 
 @app.errorhandler(404)
 def not_found(error):
@@ -31,4 +32,4 @@ def hello():
     return render_template('hello.html', **context)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()

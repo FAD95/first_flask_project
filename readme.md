@@ -2,7 +2,7 @@
 
 A basic Flask Server
 
-## Run project
+## Run project (Linux)
 
 ### Development
 ```console

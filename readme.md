@@ -6,10 +6,10 @@ A basic Flask Server
 
 ### Development
 ```console
-source devenv.sh
+source start_project/devenv.sh
 ```
 
 ### Production
 ```console
-source prodenv.sh
+source start_project/prodenv.sh
 ```

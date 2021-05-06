@@ -31,12 +31,3 @@ class MainTest(TestCase):
         }
         response = self.client.post(url_for('hello'), data=fake_form)
         self.assertRedirects(response, url_for('index'))
-    
-    def test_user_registered_flashed_message(self):
-        fake_form = {
-            'username': 'fake', 
-            'password': 'fake_password'
-        }
-        self.client.post(url_for('index'), data=fake_form)
-        message = 'User registered successfully'
-        self.assert_message_flashed(message)

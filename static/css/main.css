@@ -34,3 +34,8 @@
     font-family: 'Itim', cursive;
     font-size: 1pc;
 }
+
+#login-form{
+    max-width: 600px;
+    margin: 0 auto;
+}

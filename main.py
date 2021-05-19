@@ -1,8 +1,8 @@
-from flask import Flask, request, make_response, redirect, render_template, session, current_app, g, url_for, flash
+from flask import Flask, request, make_response, redirect, render_template, session
 import unittest
-
+from flask_login import login_required, current_user
+from app.firestore_service import get_users, get_todos
 from app import create_app 
-from app.forms import LoginForm
 
 app = create_app()
 
@@ -28,26 +28,24 @@ def index():
 
     return response
 
-@app.route('/hello', methods=['GET', 'POST'])
+@app.route('/hello', methods=['GET'])
+@login_required
 def hello():
     todos = ['TODO 1','TODO 2','TODO 3']
     user_ip = session.get('user_ip')
-    login_form = LoginForm()
-    username = session.get('username')
+    username = current_user.id
 
     context = {
         "user_ip":user_ip,
-        "todos":todos,
-        "login_form": login_form, 
+        "todos":get_todos(user_id=username),
         "username": username
     }
 
-    if login_form.validate_on_submit():
-        username = login_form.username.data
-        session['username'] = username
+    users = get_users()
 
-        flash("Username registered successfully!")
-        return redirect(url_for('index'))
+    for user in users:
+        print(user.id)
+        print(user.to_dict()['password'])
 
     return render_template('hello.html', **context)
 

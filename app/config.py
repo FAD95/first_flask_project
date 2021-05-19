@@ -1,3 +1,5 @@
 class Config:
     SECRET_KEY = 'SUPER SECRETO'
+    PRESERVE_CONTEXT_ON_EXCEPTION = False
+
     
